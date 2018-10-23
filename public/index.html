@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/style.css" />
+    <script src="/socket.io/socket.io.js"></script>
+    <link href="dist/emojione.picker.css" rel="stylesheet">
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="dist/emojione.picker.js"></script>
+
+</head>
+<body>
+    <div id="mario-chat" class="">
+        <div id="chat-window">
+            <div id="output"></div>
+            <div id="feedback"></div>
+            <br>
+            <br>
+        </div>
+        <input id="handle" type="text" placeholder="User Name" style="color:green; font-size: 30px"/>
+        <textarea id="message" type="text" placeholder="Message" rows="5" cols="72" style="border-radius: 7px;"></textarea>
+        <button id="send" onclick="updateScroll()">Send</button>
+    </div>
+    <script>
+                $('#message').emojionePicker({
+                    pickerTop: 5,
+                    pickerRight: 5,
+                    type: "unicode"
+
+                    });
+
+    $("#mario-chat").scrollTop($("#mario-chat")[0].scrollHeight);
+
+    </script>
+    <script>
+            function updateScroll(){
+                var element = document.getElementById("chat-window");
+                element.scrollTop = element.scrollHeight;
+            }
+    </script>
+    <script src="/chat.js">
+    </script>
+
+</body>
+</html>
